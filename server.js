@@ -15,7 +15,9 @@ mongoose
 //Register Apollo and link up our typeDefs and resolvers
 const server = new ApolloServer({
   typeDefs,
-  resolvers
+  resolvers,
+  introspection: true,
+  playground: true
 });
 
 //Set the server to listening
