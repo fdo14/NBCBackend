@@ -22,10 +22,10 @@ const fetchWebData = async () => {
         }
         if(obj.items) {
             for(let item of obj.items) {    //I want to look at every 'item' of 'items'
-                if(item.published && item.type === 'article') {
+                if(item.published && (item.type === 'article' || item.type === 'slideshow')) {
                     delete item.tracking    //Extra information that I won't need
                     array = [...array, item]    //Add each individual item
-                }
+                } 
             }
         }
         if(obj.videos) {

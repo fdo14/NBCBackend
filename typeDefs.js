@@ -16,7 +16,18 @@ module.exports = gql`
     url: String,
     headline: String,
     published: String,
-    tease: String
+    tease: String,
+    summary: String,
+    preview: String,
+    label: String,
+    images: [Image]
+  }
+
+  type Image {
+    id: ID,
+    url: String,
+    headline: String,
+    caption: String
   }
 
   type Query {
