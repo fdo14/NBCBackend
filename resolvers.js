@@ -35,14 +35,21 @@ const fetchWebData = async () => {
             }        
         }
     }
-    
+
+    //Remove the duplicate objects from the array by filtering by id
+    const unique = array
+        .map(e => e["id"])
+        .map((e, i, final) => final.indexOf(e) === i && i)
+        .filter(e => array[e]).map(e => array[e]);
+
+
     //We can now sort our array by date published so that the user receives only the freshest news
-    array.sort(function(a,b){
+    unique.sort(function(a,b){
         return new Date(b.published) - new Date(a.published);
     });
-    
+
     //Return the sorted array for consumption
-    return array
+    return unique
 }
 
 //This function will originally set the data in our database if it is empty
